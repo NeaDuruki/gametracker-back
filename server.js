@@ -13,9 +13,15 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/gametrack
   .then(() => console.log('Conectado a MongoDB'))
   .catch(err => console.log('Error conectando a MongoDB:', err));
 
+  app.use('/api/games', require('./routes/games'));
+
     //prueba
 app.get('/', (req, res) => {
-  res.json({ message: 'Backend funcionando!' });
+  res.json({ message: 'Backend funcionando!',
+    endpoints: {
+        games: '/api/games'
+    }
+   });
 });
 
     //iniciar
