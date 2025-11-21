@@ -8,7 +8,8 @@ const reviewSchema = new mongoose.Schema({
   },
   content: {
     type: String,
-    required: true
+    required: true,
+    trim: true
   },
   author: {
     type: String,
@@ -19,6 +20,14 @@ const reviewSchema = new mongoose.Schema({
     min: 1,
     max: 5,
     required: true
+  },
+  hoursPlayed: {
+    type: Number,
+    default: 0
+  },
+  completed: {
+    type: Boolean,
+    default: false
   }
 }, {
   timestamps: true
